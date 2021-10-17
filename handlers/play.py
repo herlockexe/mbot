@@ -24,16 +24,6 @@ DISABLED_GROUPS = []
 useer ="NaN"
 
 
-def cb_admin_check(func: Callable) -> Callable:
-    async def decorator(client, cb):
-        admemes = a.get(cb.message.chat.id)
-        if cb.from_user.id in admemes:
-            return await func(client, cb)
-        else:
-            await cb.answer("Bunu yapmana izin verilmiyor.!", show_alert=True)
-            return
-    return decorator 
-
 @Client.on_message(command("oynat") & other_filters)
 @errors
 async def oynat(_, message: Message):
@@ -71,47 +61,7 @@ async def oynat(_, message: Message):
 
     audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
     url = get_url(message)
-    
-@Client.on_message(command(["playlist"]) & filters.group & ~filters.edited)
-async def playlist(client, message):
-    global que
-    if message.chat.id in DISABLED_GROUPS:
-        return
-    queue = que.get(message.chat.id)
-    if not queue:
-        await message.reply_text("**Akışta hiçbir şey yok!**")
-    temp = []
-    for t in queue:
-        temp.append(t)
-    now_playing = temp[0][0]
-    by = temp[0][1].mention(style="md")
-    msg = "**Çalınan Şarkılar** di {}".format(message.chat.title)
-    msg += "\n• "+ now_playing
-    msg += "\n• İstek üzerine "+by
-    temp.pop(0)
-    if temp:
-        msg += "\n\n"
-        msg += "**Şarkı Sırası**"
-        for song in temp:
-            name = song[0]
-            usr = song[1].mention(style="md")
-            msg += f"\n• {name}"
-            msg += f"\n• Atas permintaan {usr}\n"
-    await message.reply_text(msg)
-    
-# ============================= Settings =========================================
-def updated_stats(chat, queue, vol=100):
-    if chat.id in callsmusic.pytgcalls.active_calls:
-        stats = "Ayarlar **{}**".format(chat.title)
-        if len(que) > 0:
-            stats += "\n\n"
-            stats += "Ses: {}%\n".format(vol)
-            stats += "Sırada şarkılar: `{}`\n".format(len(que))
-            stats += "Şarkı çalma: **{}**\n".format(queue[0][0])
-            stats += "İstek üzerine: {}".format(queue[0][1].mention)
-    else:
-        stats = None
-    return stats
+
 
 def r_ply(type_):
     if type_ == "oynat":
@@ -135,37 +85,6 @@ def r_ply(type_):
         ]
     )
     return mar
-    
-@Client.on_callback_query(filters.regex(pattern=r"^(playlist)$"))
-async def p_cb(b, cb):
-    global que    
-    que.get(cb.message.chat.id)
-    type_ = cb.matches[0].group(1)
-    cb.message.chat.id
-    cb.message.chat
-    cb.message.reply_markup.inline_keyboard[1][0].callback_data
-    if type_ == "playlist":
-        queue = que.get(cb.message.chat.id)
-        if not queue:
-            await cb.message.edit("**Hiçbir şey oynamıyor.❗**")
-        temp = []
-        for t in queue:
-            temp.append(t)
-        now_playing = temp[0][0]
-        by = temp[0][1].mention(style="md")
-        msg = "**Şimdi yürütülen** in {}".format(cb.message.chat.title)
-        msg += "\n• " + now_playing
-        msg += "\n• Tarafından " + by
-        temp.pop(0)
-        if temp:
-            msg += "\n\n"
-            msg += "**Şarkı Sırası**"
-            for song in temp:
-                name = song[0]
-                usr = song[1].mention(style="md")
-                msg += f"\n• {name}"
-                msg += f"\n• Req by {usr}\n"
-        await cb.message.edit(msg)      
 
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
