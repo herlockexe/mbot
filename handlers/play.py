@@ -44,7 +44,7 @@ async def oynat(_, message: Message):
                  [
                     InlineKeyboardButton(
                         text="🇹🇷 Botun Sahibi 🇹🇷",
-                        url=f"https://t.me/Moriyonis)
+                        url=f"https://t.me/Moriyonis")
                    
                 ]
             ]
