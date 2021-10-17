@@ -11,7 +11,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 async def start_(client: Client, message: Message):
     await message.reply_sticker("CAACAgQAAx0CTv65QgABBfJlYF6VCrGMm6OJ23AxHmD6qUSWESsAAhoQAAKm8XEeD5nrjz5IJFYeBA")
     await message.reply_text(
-        f"""Merhaba 👋! **Telegram Gruplarının sesli sohbetlerinde müzik çalabiliyorum. Sizi şaşırtacak pek çok harika özelliğim var!** 🥳 \n\n🔴 **Telegramda Beni nasıl kullanabileceğinizi öğrenmek için lütfen >> /help Butonuna basınız.** \n\n🔴 **Grubunuzun sesli sohbetinde, Müzik çalabilmem için Asistanın Grubunuzda olması gerekir.** \n\n🔵 Bu çalışma [Sohbet Destek](https://t.me/Sohbetdestek) Tarafından keyfe değer düzenlenmiştir.!
+        f"""Merhaba 👋! **Telegram Gruplarının sesli sohbetlerinde müzik çalabiliyorum. Sizi şaşırtacak pek çok harika özelliğim var!** 🥳 \n\n🔴 **Telegramda Beni nasıl kullanabileceğinizi öğrenmek için lütfen >> /help Butonuna basınız.** \n\n🔴 **Grubunuzun sesli sohbetinde, Müzik çalabilmem için Asistanın Grubunuzda olması gerekir.** \n\n🔵 Bu çalışma [Sohbet Destek](https://t.me/SohbetEmpire) Tarafından keyfe değer düzenlenmiştir.!
       """,
         reply_markup=InlineKeyboardMarkup(
             [ 
@@ -24,7 +24,7 @@ async def start_(client: Client, message: Message):
                     )
                 ],[ 
                     InlineKeyboardButton(
-                        "🎵 Mp3 Arama Botu", url="https://t.me/Mp3_aramaBot"
+                        "🎵 Mp3 Arama Botu", url="https://t.me/DeezerMusicBot"
                     )
               ],[ 
                     InlineKeyboardButton(

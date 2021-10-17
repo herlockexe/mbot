@@ -76,7 +76,7 @@ async def atla(_, message: Message):
                 callsmusic.queues.get(message.chat.id)["file"]
             )
 
-        await message.reply_text("➡️ **ꜱᴀʀᴋɪ ʙɪʀ ꜱᴏɴʀᴀᴋɪ ᴋᴜʏʀᴜɢᴀ ᴀᴛʟᴀᴛɪʟᴅɪ!**\n\n• **ꜱᴀᴜɴᴅᴀ ᴏʏɴᴀᴛɪʟɪʏᴏʀ.. 🥳**" )
+        await message.reply_text("➡️ **ʙɪʀ ꜱᴏɴʀᴀᴋɪ ᴘᴀʀᴄᴀʏᴀ ɢᴇᴄɪʟᴅɪ!**\n\n• **ᴏʏɴᴀᴛɪʟɪʏᴏʀ.. 🥳**" )
 
 @Client.on_message(command("admincache"))
 @errors
