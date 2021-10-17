@@ -62,7 +62,7 @@ async def ytplay(_, message: Message):
                 [
                     InlineKeyboardButton(
                         text="Watch On YouTube",
-                        url=f"{url}") ] ] )
+                        url=f"{url}")
                    
                 ]
             ]
@@ -73,7 +73,7 @@ async def ytplay(_, message: Message):
                 [
                     InlineKeyboardButton(
                         text="Watch On YouTube",
-                        url=f"{url}") ] ] )
+                        url=f"{url}")
                    
                 ]
             ]
