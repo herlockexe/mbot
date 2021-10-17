@@ -19,7 +19,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 @errors
 async def oynat(_, message: Message):
 
-    lel = await message.reply("🔄 **Sesler işleniyor..**🔥")
+    lel = await message.reply("🔄 **ꜱᴇꜱʟᴇʀ ɪꜱʟᴇɴɪʏᴏʀ..**🔥")
     sender_id = message.from_user.id
     sender_name = message.from_user.first_name
 
@@ -36,7 +36,10 @@ async def oynat(_, message: Message):
                  [
                     InlineKeyboardButton(
                         text="🇹🇷 Edited by 🇹🇷",
-                        url=f"https://t.me/jackdanielssx")
+                        url=f"https://t.me/jackdanielssx"),
+                    InlineKeyboardButton(
+                        text="🇹🇷 Edited by 🇹🇷",
+                        url=f"https://t.me/mahoaga")
                    
                 ]
             ]
@@ -59,13 +62,13 @@ async def oynat(_, message: Message):
     elif url:
         file_path = await converter.convert(youtube.download(url))
     else:
-        return await lel.edit_text("🤷‍♀️ Bana oynayacak bir şey vermedin.!")
+        return await lel.edit_text("🤷‍♀️ ʙᴀɴᴀ ᴏʏɴᴀᴛɪʟᴀᴄᴀᴋ ᴍᴘ3 ꜰᴏʀᴍᴀᴛɪ ᴠᴇʀᴍᴇᴅɪɴ.!")
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
         photo="https://i.ibb.co/Qkz78hx/images-1.jpg",
-        caption="**👤 Ekleyen:** {}\n\n**#⃣ Kuyruğa Atılmış Konum:** {}".format( 
+        caption="**👤 ᴛᴀʟᴇᴘ ᴇᴅᴇɴ:** {}\n\n**#⃣ ꜱɪʀᴀᴅᴀᴋɪ ᴘᴀʀᴄᴀ ᴇᴋʟᴇɴᴅɪ:** {}".format( 
         message.from_user.mention(), position
         ),
         reply_markup=keyboard)
@@ -75,7 +78,7 @@ async def oynat(_, message: Message):
         await message.reply_photo(
         photo="https://i.ibb.co/nwHdB2D/images.jpg",
         reply_markup=keyboard,
-        caption="▶️ **Oynatılıyor** burada istenen şarkı tarafındanızdan {}!".format(
+        caption="▶️ **ᴏʏɴᴀᴛɪʟɪʏᴏʀ** ʙᴜʀᴀᴅᴀ ɪꜱᴛᴇɴᴇɴ ꜱᴀʀᴋɪ ᴛᴀʀᴀꜰɪɴᴅᴀɴɪᴢᴅᴀɴ {}!".format(
         message.from_user.mention()
         ),
     )
