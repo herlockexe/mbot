@@ -52,6 +52,33 @@ async def oynat(_, message: Message):
 
     audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
     url = get_url(message)
+    
+@Client.on_message(command(["playlist", f"playlist@Efsanestar_bot"]) & filters.group & ~filters.edited)
+async def playlist(client, message):
+    global que
+    if message.chat.id in DISABLED_GROUPS:
+        return
+    queue = que.get(message.chat.id)
+    if not queue:
+        await message.reply_text("**Akışta hiçbir şey yok!**")
+    temp = []
+    for t in queue:
+        temp.append(t)
+    now_playing = temp[0][0]
+    by = temp[0][1].mention(style="md")
+    msg = "**Çalınan Şarkılar** di {}".format(message.chat.title)
+    msg += "\n• "+ now_playing
+    msg += "\n• İstek üzerine "+by
+    temp.pop(0)
+    if temp:
+        msg += "\n\n"
+        msg += "**Şarkı Sırası**"
+        for song in temp:
+            name = song[0]
+            usr = song[1].mention(style="md")
+            msg += f"\n• {name}"
+            msg += f"\n• Atas permintaan {usr}\n"
+    await message.reply_text(msg)
 
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
