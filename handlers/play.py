@@ -5,11 +5,15 @@ from pyrogram.types import Message, Voice
 
 from callsmusic import callsmusic, queues
 import aiohttp
-import asyncio
+from os import path
+
+from pyrogram import Client
+from pyrogram.types import Message, Voice
+
+from callsmusic import callsmusic, queues
 
 import converter
 from downloaders import youtube
-from asyncio.queues import QueueEmpty
 
 from config import BOT_NAME as bn, DURATION_LIMIT
 from helpers.filters import command, other_filters
@@ -17,12 +21,6 @@ from helpers.decorators import errors
 from helpers.errors import DurationLimitError
 from helpers.gets import get_url, get_file_name
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-
-aiohttpsession = aiohttp.ClientSession()
-chat_id = None
-DISABLED_GROUPS = []
-useer ="NaN"
-
 
 @Client.on_message(command("oynat") & other_filters)
 @errors
@@ -61,30 +59,6 @@ async def oynat(_, message: Message):
 
     audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
     url = get_url(message)
-
-
-def r_ply(type_):
-    if type_ == "oynat":
-        pass
-    else:
-        pass
-    mar = InlineKeyboardMarkup(
-        [
-            [
-                InlineKeyboardButton("⏹", "son"),
-                InlineKeyboardButton("⏸", "durdur"),
-                InlineKeyboardButton("▶️", "devam"),
-                InlineKeyboardButton("⏭", "atla")
-            ],
-            [
-                InlineKeyboardButton("📖 Şarkı bilgisi", "playlist"),
-            ],
-            [       
-                InlineKeyboardButton("❎ Kapat", "cls")
-            ]        
-        ]
-    )
-    return mar
 
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
