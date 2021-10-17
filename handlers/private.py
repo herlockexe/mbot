@@ -28,7 +28,7 @@ async def start_(client: Client, message: Message):
                     )
               ],[ 
                     InlineKeyboardButton(
-                        "🎯 Usertagger Bot", url="https://t.me/EmpireTaggerBot
+                        "🎯 Usertagger Bot", url="https://t.me/EmpireTaggerBot"
                     )]
             ]
         ),
