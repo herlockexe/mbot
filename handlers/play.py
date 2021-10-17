@@ -4,9 +4,11 @@ from pyrogram import Client
 from pyrogram.types import Message, Voice
 
 from callsmusic import callsmusic, queues
+import asyncio
 
 import converter
 from downloaders import youtube
+from asyncio.queues import QueueEmpty
 
 from config import BOT_NAME as bn, DURATION_LIMIT
 from helpers.filters import command, other_filters
@@ -19,6 +21,17 @@ aiohttpsession = aiohttp.ClientSession()
 chat_id = None
 DISABLED_GROUPS = []
 useer ="NaN"
+
+
+def cb_admin_check(func: Callable) -> Callable:
+    async def decorator(client, cb):
+        admemes = a.get(cb.message.chat.id)
+        if cb.from_user.id in admemes:
+            return await func(client, cb)
+        else:
+            await cb.answer("Bunu yapmana izin verilmiyor.!", show_alert=True)
+            return
+    return decorator 
 
 @Client.on_message(command("oynat") & other_filters)
 @errors
