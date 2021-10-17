@@ -4,6 +4,7 @@ from pyrogram import Client
 from pyrogram.types import Message, Voice
 
 from callsmusic import callsmusic, queues
+import aiohttp
 import asyncio
 
 import converter
