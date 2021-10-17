@@ -15,6 +15,11 @@ from helpers.errors import DurationLimitError
 from helpers.gets import get_url, get_file_name
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
+aiohttpsession = aiohttp.ClientSession()
+chat_id = None
+DISABLED_GROUPS = []
+useer ="NaN"
+
 @Client.on_message(command("oynat") & other_filters)
 @errors
 async def oynat(_, message: Message):
@@ -79,6 +84,74 @@ async def playlist(client, message):
             msg += f"\n• {name}"
             msg += f"\n• Atas permintaan {usr}\n"
     await message.reply_text(msg)
+    
+# ============================= Settings =========================================
+def updated_stats(chat, queue, vol=100):
+    if chat.id in callsmusic.pytgcalls.active_calls:
+        stats = "Ayarlar **{}**".format(chat.title)
+        if len(que) > 0:
+            stats += "\n\n"
+            stats += "Ses: {}%\n".format(vol)
+            stats += "Sırada şarkılar: `{}`\n".format(len(que))
+            stats += "Şarkı çalma: **{}**\n".format(queue[0][0])
+            stats += "İstek üzerine: {}".format(queue[0][1].mention)
+    else:
+        stats = None
+    return stats
+
+def r_ply(type_):
+    if type_ == "oynat":
+        pass
+    else:
+        pass
+    mar = InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton("⏹", "son"),
+                InlineKeyboardButton("⏸", "durdur"),
+                InlineKeyboardButton("▶️", "devam"),
+                InlineKeyboardButton("⏭", "atla")
+            ],
+            [
+                InlineKeyboardButton("📖 Şarkı bilgisi", "playlist"),
+            ],
+            [       
+                InlineKeyboardButton("❎ Kapat", "cls")
+            ]        
+        ]
+    )
+    return mar
+    
+@Client.on_callback_query(filters.regex(pattern=r"^(playlist)$"))
+async def p_cb(b, cb):
+    global que    
+    que.get(cb.message.chat.id)
+    type_ = cb.matches[0].group(1)
+    cb.message.chat.id
+    cb.message.chat
+    cb.message.reply_markup.inline_keyboard[1][0].callback_data
+    if type_ == "playlist":
+        queue = que.get(cb.message.chat.id)
+        if not queue:
+            await cb.message.edit("**Hiçbir şey oynamıyor.❗**")
+        temp = []
+        for t in queue:
+            temp.append(t)
+        now_playing = temp[0][0]
+        by = temp[0][1].mention(style="md")
+        msg = "**Şimdi yürütülen** in {}".format(cb.message.chat.title)
+        msg += "\n• " + now_playing
+        msg += "\n• Tarafından " + by
+        temp.pop(0)
+        if temp:
+            msg += "\n\n"
+            msg += "**Şarkı Sırası**"
+            for song in temp:
+                name = song[0]
+                usr = song[1].mention(style="md")
+                msg += f"\n• {name}"
+                msg += f"\n• Req by {usr}\n"
+        await cb.message.edit(msg)      
 
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:

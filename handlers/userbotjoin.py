@@ -13,7 +13,7 @@ async def addchannel(client, message):
         invitelink = await client.export_chat_invite_link(chid)
     except:
         await message.reply_text(
-            "<b>Önce beni yor grubunun yöneticisi olarak ekle</b>",
+            "<b>ᴏɴᴄᴇ ʙᴇɴɪ ʏᴏʀ ɢʀᴜʙᴜɴᴜɴ ʏᴏɴᴇᴛɪᴄɪꜱɪ ᴏʟᴀʀᴀᴋ ᴇᴋʟᴇ</b>",
         )
         return
 
@@ -24,21 +24,21 @@ async def addchannel(client, message):
 
     try:
         await USER.join_chat(invitelink)
-        await USER.send_message(message.chat.id,"I joined here as you requested")
+        await USER.send_message(message.chat.id,"ᴍᴇʀʜᴀʙᴀ ꜱᴇꜱᴛᴇ ꜱᴀʀᴋɪ ᴄᴀʟᴍᴀᴋ ɪᴄɪɴ ɢᴇʟᴅɪᴍ")
     except UserAlreadyParticipant:
         await message.reply_text(
-            "<b>sohbetinizde zaten yardımcı</b>",
+            "<b>ʏᴀʀᴅɪᴍᴄɪ ʙᴏᴛ ᴢᴀᴛᴇɴ ꜱᴏʜʙᴇᴛɪɴɪᴢᴅᴇ</b>",
         )
         pass
     except Exception as e:
         print(e)
         await message.reply_text(
-            f"<b>🛑 Flood Wait Error 🛑 \n User {user.first_name} couldn't join your group due to heavy join requests for userbot! Make sure user is not banned in group."
-            "\n\nVeya grubunuza el ile ekleyin ve yeniden deneyin</b>",
+            f"<b>🛑 ᴀꜱɪꜱᴛᴀɴ ʙᴏᴛ ɢʀᴜʙᴀ ᴋᴀᴛɪʟᴀᴍᴀᴅɪ 🛑 \n ᴋᴜʟʟᴀɴɪᴄɪ {user.first_name} ᴋᴜʟʟᴀɴɪᴄɪɴɪɴ ɢʀᴜᴘᴛᴀ ʏᴀꜱᴀᴋʟᴀɴᴍᴀᴅɪɢɪɴᴅᴀɴ ᴇᴍɪɴ ᴏʟᴜɴ."
+            "\n\nᴠᴇʏᴀ ɢʀᴜʙᴜɴᴜᴢᴀ ᴇʟ ɪʟᴇ ᴇᴋʟᴇʏɪɴ ᴠᴇ ʏᴇɴɪᴅᴇɴ ᴅᴇɴᴇʏɪɴ</b>",
         )
         return
     await message.reply_text(
-            "<b>yardımcı userbot sohbetinize katıldı</b>",
+            "<b>ʏᴀʀᴅɪᴍᴄɪ ᴜꜱᴇʀʙᴏᴛ ꜱᴏʜʙᴇᴛɪɴɪᴢᴇ ᴋᴀᴛɪʟᴅɪ</b>",
         )
     
 @USER.on_message(filters.group & filters.command(["asistanby"]))
@@ -47,7 +47,7 @@ async def rem(USER, message):
         await USER.leave_chat(message.chat.id)
     except:  
         await message.reply_text(
-            f"<b>Kullanıcı grubunuzdan ayrılamadı! Floodwaits olabilir."
-            "\n\nYa da beni manuel olarak grubunuza tekmelersiniz.</b>",
+            f"<b>ᴋᴜʟʟᴀɴɪᴄɪ ɢʀᴜʙᴜɴᴜᴢᴅᴀɴ ᴀʏʀɪʟᴀᴍᴀᴅɪ! ꜰʟᴏᴏᴅᴡᴀɪᴛꜱ ᴏʟᴀʙɪʟɪʀ."
+            "\n\nʏᴀ ᴅᴀ ʙᴇɴɪ ᴍᴀɴᴜᴇʟ ᴏʟᴀʀᴀᴋ ɢʀᴜʙᴜɴᴜᴢᴀ ᴀᴛᴀʙɪʟɪʀꜱɪɴɪᴢ.</b>",
         )
         return
