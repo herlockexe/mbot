@@ -70,18 +70,18 @@ async def start(client: Client, message: Message):
 async def help(client: Client, message: Message):
     await message.reply_text(
         f"""<b>Merhaba {message.from_user.first_name}! 
-\n/oynat - Mp3 Formatına uygun dosyaları çalıştırmak için deeser music destekler
-/bul - istediğiniz şarkıları hızlı bir şekilde indirin
-/ytplay - Youtube'dan istediğiniz müziği çalar
-/id - halSohbet id ve Kullanıcının id'si kında help verir
-\n*🙋‍♂️ Yalnızca yöneticiler*
-/durdur - şarkı çalmayı duraklatma
-/devam - şarkı çalmaya devam et
-/atla - sonraki şarkıyı çal
-/son- müzik çalmayı durdurma
-/asistan - asistanı sohbetinize davet etme
-/asistanby - Yönetici listesini yenile
-/admincache - yönetim ön bellek yeniler 
+\n/oynat - ᴍᴘ3 ꜰᴏʀᴍᴀᴛɪɴᴀ ᴜʏɢᴜɴ ᴅᴏꜱʏᴀʟᴀʀɪ ᴄᴀʟɪꜱᴛɪʀᴍᴀᴋ ɪᴄɪɴ ᴅᴇᴇꜱᴇʀ ᴍᴜꜱɪᴄ ᴅᴇꜱᴛᴇᴋʟᴇʀ
+/bul - ɪꜱᴛᴇᴅɪɢɪɴɪᴢ ꜱᴀʀᴋɪʟᴀʀɪ ʜɪᴢʟɪ ʙɪʀ ꜱᴇᴋɪʟᴅᴇ ɪɴᴅɪʀɪɴ
+/ytplay - ʏᴏᴜᴛᴜʙᴇ'ᴅᴀɴ ɪꜱᴛᴇᴅɪɢɪɴɪᴢ ᴍᴜᴢɪɢɪ ᴄᴀʟᴀʀ
+/id - ꜱᴏʜʙᴇᴛ ɪᴅ ᴠᴇ ᴋᴜʟʟᴀɴɪᴄɪɴɪɴ ɪᴅ'ꜱɪ ʜᴀᴋᴋɪɴᴅᴀ ʙɪʟɢɪ ᴠᴇʀɪʀ
+\n*🙋‍♂️ ʏᴀʟɴɪᴢᴄᴀ ʏᴏɴᴇᴛɪᴄɪʟᴇʀ ɪᴄɪɴ*
+/durdur - ꜱᴀʀᴋɪ ᴄᴀʟᴍᴀʏɪ ᴅᴜʀᴀᴋʟᴀᴛᴍᴀ
+/devam - ꜱᴀʀᴋɪ ᴄᴀʟᴍᴀʏᴀ ᴅᴇᴠᴀᴍ ᴇᴛ
+/atla - ꜱᴏɴʀᴀᴋɪ ꜱᴀʀᴋɪʏɪ ᴄᴀʟ
+/son- ᴍᴜᴢɪᴋ ᴄᴀʟᴍᴀʏɪ ᴅᴜʀᴅᴜʀᴍᴀ
+/asistan - ᴀꜱɪꜱᴛᴀɴɪ ꜱᴏʜʙᴇᴛɪɴɪᴢᴇ ᴅᴀᴠᴇᴛ ᴇᴛᴍᴇ
+/asistanby - ᴀꜱɪꜱᴛᴀɴɪɴɪᴢɪ ꜱᴏʜʙᴇᴛɪɴɪᴢᴅᴇɴ ᴄɪᴋᴀʀɪʀ
+/admincache - ʏᴏɴᴇᴛɪᴍ ᴏɴ ʙᴇʟʟᴇᴋ ʏᴇɴɪʟᴇʀ
  </b>""",
         reply_markup=InlineKeyboardMarkup(
             [
