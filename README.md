@@ -31,9 +31,8 @@
 - `/asistandefol` - asistanı sohbetinizden çıkarın
 - `/admincache` - Yönetici ön ön belleğini yeniler. 
 ----------------------------------
-Ana Grup = [Sohbet Destek](https://t.me/Saygisizlar)
+Ana Grup = [Sohbet Destek](https://t.me/jackmedyaa)
 
-Hazırlayan = [Oyun Grubu](https://t.me/kurtadamoyunuu)
 
 <h3 align="centre"> Heroku </h4>
 

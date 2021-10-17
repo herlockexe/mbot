@@ -35,11 +35,16 @@ async def oynat(_, message: Message):
                  ],
                  [
                     InlineKeyboardButton(
-                        text="🇹🇷 Edited by 🇹🇷",
+                        text="🇹🇷 Creator 🇹🇷",
                         url=f"https://t.me/jackdanielssx"),
                     InlineKeyboardButton(
-                        text="🇹🇷 Edited by 🇹🇷",
+                        text="🇹🇷 Creator 🇹🇷",
                         url=f"https://t.me/mahoaga")
+                  ],
+                 [
+                    InlineKeyboardButton(
+                        text="🇹🇷 Botun Sahibi 🇹🇷",
+                        url=f"https://t.me/Moriyonis)
                    
                 ]
             ]

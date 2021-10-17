@@ -2,7 +2,7 @@
   "name": "MusicBot",
   "description": "Telegram'ınızın Grup Sesli Sohbeti'nde şarkı çalmak için Açık Kaynaklı bot. PyTgCalls tarafından desteklenmektedir.",
   "keywords": ["music", "voicechat", "telegram"],
-  "repository": "https://github.com/Alfa00006/Alfa-Vc-Bot",
+  "repository": "https://github.com/newname58q/mbot",
   "stack": "container",
   "env": {
     "SESSION_NAME": {
