@@ -1,7 +1,7 @@
 import cache.admins
 from typing import List
 
-from pyrogram.types import Chat
+from pyrogram.types import Chat, User
 from cache.admins import get as gett
 from cache.admins import set
 
