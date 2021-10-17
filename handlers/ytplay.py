@@ -56,6 +56,28 @@ async def ytplay(_, message: Message):
         )
         print(str(e))
         return
+        
+    keyboard4 = InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        text="Watch On YouTube",
+                        url=f"{url}") ] ] )
+                   
+                ]
+            ]
+        )
+        
+    keyboard3 = InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        text="Watch On YouTube",
+                        url=f"{url}") ] ] )
+                   
+                ]
+            ]
+        )
 
     keyboard = InlineKeyboardMarkup(
             [
